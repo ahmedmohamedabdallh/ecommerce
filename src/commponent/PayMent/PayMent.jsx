@@ -9,12 +9,7 @@ export default function PayMent() {
 
 const{cartId}=useContext(CartContext)
 const nav =useNavigate()
-let validationSchema= Yup.object({
-      
-  email:Yup.string().email().required(),
-  password:Yup.string().required(),
- 
-})
+
 
  async function confirmCashOrder(){
 try {

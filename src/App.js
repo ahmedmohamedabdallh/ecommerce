@@ -42,6 +42,8 @@ function getUserData(){
       element: <CartContextProvider><Layout  setUser={setUser} user={user}/></CartContextProvider>,
       children:[
        {index:true,element:<ProdectedRoute><CartContextProvider><HomePage/></CartContextProvider></ProdectedRoute>},
+       {path:'login',element:<Login getUserData={getUserData}/>},
+       {path:'rejaster',element:<Rejaster/>},
        {path:'products',element:<ProdectedRoute><CartContextProvider><Products/></CartContextProvider></ProdectedRoute>},
        {path:'product-details/:id',element:<ProdectedRoute><CartContextProvider><ProductDetails/></CartContextProvider></ProdectedRoute>},
        {path:'cart',element:<ProdectedRoute><CartContextProvider><Cart/></CartContextProvider></ProdectedRoute>},
@@ -50,8 +52,7 @@ function getUserData(){
        {path:'brand',element:<ProdectedRoute><CartContextProvider><Brand/></CartContextProvider></ProdectedRoute>},
        {path:'brpro/:id',element:<ProdectedRoute><CartContextProvider><BrPro/></CartContextProvider></ProdectedRoute>},
        
-       {path:'login',element:<Login getUserData={getUserData}/>},
-       {path:'rejaster',element:<Rejaster/>},
+       
       
       ]
     }
