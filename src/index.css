@@ -1,13 +1,138 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+:root
+{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+    font-family: var(--font-family) !important;
+}
+.rating-color
+{
+    color: var(--rating-color);
+}
+.cursor-pointer
+{
+    cursor: pointer;
+}
+a , a:hover{
+    color: black;
+    text-decoration: none;
+}
+.product:hover
+{
+    
+    cursor: pointer;
+}
+.product .btn 
+{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn 
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+.font-sm
+{
+    font-size: 14px;
+}
+.text-main
+{
+    color: var(--main-color);
+}
+.bg-main
+{
+    background-color: var(--main-color) !important;
+}
+.bg-main-light 
+{
+    background-color: var(--light-color) !important;
+}
+.slider{
+
+ width:70% ;
+
+}
+.bb:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: transform 0.8s;
+    margin: 10px;
+}
+.spiner{
+    height: 100vh;
+    background-color: #c1d7f312;
+    z-index: 22222;
+   }
+   input.qtmunis{
+       width: 25px;
+       height: 25px;
+       padding: 5px;
+       margin: 2%;
+       cursor: pointer;
+   }
+   input.qtplus{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    margin: 2%;
+    cursor: pointer;
+}
+.offlineImage{
+    background-size: cover;
+    background-position: center;
+}
+.nnnnnn{
+    height: 300px;
+}
+/* .model{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.972);
+    transition: opacity .4s ease, visibility .4s ease,transform .5s ease-in-out;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: 5555;
+    opacity: 0;
+    transform: scale(0);
+    
+}
+.model.open{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+.model img{
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+    line-height: 0;
+    box-sizing: border-box;
+    padding: 20px 0 20px;
+    margin: 0 auto;
+} */
+.dss{
+    padding-top: 10px;
+    text-align: center;
+    position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 555;
+}
+.dss h1{
+    margin-bottom: 5px;
 }
