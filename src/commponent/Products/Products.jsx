@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { baseUrl } from '../../utils/baseUrl'
 import axios from 'axios'
 
@@ -6,14 +6,16 @@ import { Link } from 'react-router-dom'
 import Product from '../Product/Product'
 import Spiner from '../Spiner/Spiner'
 import { Helmet } from 'react-helmet'
+import { CartContext } from '../../context/cartContext'
 
 export default function Products() {
-  
+  let {setnumOfCartItems}=useContext(CartContext)
   const[Products,setProducts]= useState([])
   const getAllproducts=async()=>{
       let {data}=await axios.get(`${baseUrl}/products`)
       console.log(data)
       setProducts(data.data)
+     
   }
   useEffect(()=>{
     getAllproducts()

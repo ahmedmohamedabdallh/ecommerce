@@ -33,7 +33,7 @@ export default function BrPro() {
      {allPeoducts.length== 0?<h2 className='text-center p-5 text-danger'>No Products Available Right Now....</h2>:allPeoducts.map((item,indx)=>{
             return   <div key={indx} className="col-md-4    ">
 <div className='ms-3 p-3 g-3 '>
-<Link to={'/details/'+ item._id}>
+<Link to={'/product-details/'+ item._id}>
  <img src={item.imageCover} className='w-100' alt="" />
         <h6 className='text-main'>{item.category.name}</h6>
         <p className='fw-bolder'>{item.title.split(' ').slice(0,6).join(' ')}</p>

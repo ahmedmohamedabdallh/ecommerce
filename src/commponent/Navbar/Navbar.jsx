@@ -5,8 +5,11 @@ import logo from '../../images/freshcart-logo.svg'
 
 
 
-export default function Navbar({ user, logOut ,numOfCartItem }) {
- 
+
+
+export default function Navbar({ user, logOut,numOfCartItem}) {
+
+
   return (
     <>
 <nav className="navbar navbar-expand-lg bg-main-light">
@@ -18,28 +21,33 @@ export default function Navbar({ user, logOut ,numOfCartItem }) {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      {user ? <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
         <NavLink className="nav-link" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
         <NavLink className="nav-link" to="/products">Products</NavLink>
         </li>
-        {/* <li className="nav-item">
+        <li className="nav-item">
         <NavLink className="nav-link" to="/brand">Brands</NavLink>
-        </li> */}
+        </li>
         <li className="nav-item">
         <NavLink className="nav-link" to="/allorders">All Orders</NavLink>
         </li>
-      </ul>
+      </ul> :''}
+     
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mt-1">
               {user ? <>
+                <NavLink type="button" className="btn me-2 border-0  position-relative" to="/wishlist">
+                Wishlist <i className="fa-solid fa-heart text-danger w"></i>
+                </NavLink>
                 <NavLink type="button" className="btn me-2 border-0  position-relative" to="/cart">
                   Cart <i className="fa-solid fa-cart-shopping"></i>
-                  <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-    <span className="visually-hidden">New alerts</span>
+                  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+    <span class="visually-hidden">New alerts</span>
   </span>
                 </NavLink>
+                
                 <li className="nav-item">
                   <span onClick={logOut} className="nav-link product">Logout</span>
                 </li>

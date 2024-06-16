@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import { CartContext } from '../../context/cartContext'
 
 
-export default function Layout({ user , setUser , }) {
+export default function Layout({ user , setUser}) {
   let {numOfCartItem}=useContext(CartContext)
   let navigate = useNavigate()
   function logOut() {
@@ -15,7 +15,7 @@ export default function Layout({ user , setUser , }) {
   }
   return (
     <>
-      <Navbar logOut={logOut} numOfCartItem={numOfCartItem}  user={user} />
+      <Navbar numOfCartItem={numOfCartItem} logOut={logOut}   user={user} />
       
       <Outlet></Outlet>
       

@@ -16,7 +16,7 @@ export default function ProductDetails() {
   const notify = (msg,type) => {
     toast[type](msg);
 }
-  let {addToCart,removeCart,getCart}=useContext(CartContext)
+  let {addToCart,removeCart,getCart,addToWhislist,getWishlist}=useContext(CartContext)
  
   async function addProduct(productId){
    let token=localStorage.getItem('token')
@@ -34,6 +34,22 @@ export default function ProductDetails() {
    }
      
    }
+   async function addProductWish(productId,idx){
+    let token=localStorage.getItem('token')
+    if(token){
+      let respons= await addToWhislist(token,productId)
+      if (respons.status===200) {
+        notify('Success','success')
+        $(`#wish`).css("color","red")
+
+        getWishlist()
+      }
+     
+    }else{
+      alert('you are not login')
+    }
+      
+    }
   async function removProduct(id) {
     if (await removeCart(id)===true) {
       notify("Remove",'Remove')
@@ -86,7 +102,13 @@ export default function ProductDetails() {
 
       </div>
       <div className="col-md-7 my-5 align-items-center  ">
+
 <h4>{Product.title}</h4>
+<div className='d-flex justify-content-around ms-5'>
+<button id='wish' style={{"coler":'none'}} onClick={()=>addProductWish(Product._id)} className='wish ms-5'><i class="fa-sharp fa-solid fa-heart"></i></button>
+</div>
+
+
 <p>{Product.description}</p>
 {/* <h4> Brand :{brand.name}</h4> */}
 
@@ -100,7 +122,7 @@ export default function ProductDetails() {
   </div>
   <button id='addbtn' onClick={()=>addProduct(Product._id)}  className='btn bg-main text-white w-75  my-2'>Add to cart</button>
   <button id='delbtn' onClick={()=>removProduct(Product._id)} style={{"display":'none'}}  className='btn bg-danger text-white w-75  my-2'>Remove From Cart</button>
-  <div style={{"display":'none'}} className="alert alert-success text-center w-75">Product Add Successfully</div>
+ 
   
       </div>
   </div>

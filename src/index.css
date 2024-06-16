@@ -136,3 +136,35 @@ a , a:hover{
 .dss h1{
     margin-bottom: 5px;
 }
+.input input{
+    padding: 10px 20px;
+    margin-left: 10px;
+    width: 80px;
+    outline: none;
+    color: #cd1ecd;
+    font-size: 14px;
+    background: none;
+    font-weight: 600;
+    border: none;
+    /* border: 2px solid #22bb33; */
+} 
+.wish{
+    
+    border: 0;
+    background: none;
+    font-size: 25px;
+    transition: all 0.05s;
+    
+}
+.wish:hover{
+    color: red;
+    
+}
+.w{
+    font-size: 20px; 
+}
+.rm{
+    border: none;
+    background: none;
+   margin: auto;
+}
