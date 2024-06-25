@@ -22,7 +22,7 @@ export default function Login({getUserData}) {
     let validationSchema= Yup.object({
       
         email:Yup.string().email().required(),
-        password:Yup.string().required(),
+        password:Yup.string().matches(/^[A-Z][a-z0-9@#%$*.]{7,}$/,'The password is not valid').required(),
        
     })
     let login = useFormik({

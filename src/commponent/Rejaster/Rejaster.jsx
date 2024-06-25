@@ -22,7 +22,7 @@ export default function Rejaster() {
     let validationSchema= Yup.object({
         name:Yup.string().min(3).max(20).required(),
         email:Yup.string().email().required(),
-        password:Yup.string().matches(/^[A-Z][a-z0-9@#%$*]{7,}$/,'The password is not valid').required(),
+        password:Yup.string().matches(/^[A-Z][a-z0-9@#%$*.]{7,}$/,'The password is not valid At least one capital letter and a specialChar ').required(),
         rePassword:Yup.string().oneOf([Yup.ref('password')],'Password Different  ').required(),
     })
     let rejaster = useFormik({
@@ -129,10 +129,13 @@ export default function Rejaster() {
                     {rejaster.errors.password?<div className="alert alert-danger">{rejaster.errors.password }</div>:''}
                     <label htmlFor="rePassword">Confirm Password</label>
                     <input value={rejaster.values.rePassword} onChange={rejaster.handleChange} type="password" className='form-control my-3' id='rePassword' name='rePassword' />
-                    {rejaster.errors.rePassword?<div className="alert alert-danger">{rejaster.errors.rePassword }</div>:''}
+                    {rejaster.errors.rePassword?<div className="alert alert-danger">{rejaster.errors.rePassword }</div>:''},
+        
                     <button disabled={!(rejaster.isValid&&rejaster.dirty&&!loding)} type='submit' className='btn btn-outline-primary '>
                         {!loding?"Rejaster":<i className='fas fa-spinner fa-spin'></i>}
                         </button>
+           
+              
                 </form>
             </div>
 

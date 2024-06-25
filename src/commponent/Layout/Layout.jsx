@@ -5,7 +5,7 @@ import { CartContext } from '../../context/cartContext'
 
 
 export default function Layout({ user , setUser}) {
-  let {numOfCartItem}=useContext(CartContext)
+  let {numOfCartItem,setnumOfCartItems}=useContext(CartContext)
   let navigate = useNavigate()
   function logOut() {
     localStorage.removeItem("token")
@@ -15,7 +15,7 @@ export default function Layout({ user , setUser}) {
   }
   return (
     <>
-      <Navbar numOfCartItem={numOfCartItem} logOut={logOut}   user={user} />
+      <Navbar setnumOfCartItems={setnumOfCartItems} numOfCartItem={numOfCartItem} logOut={logOut}   user={user} />
       
       <Outlet></Outlet>
       
